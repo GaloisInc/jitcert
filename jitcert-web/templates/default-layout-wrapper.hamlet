@@ -1,0 +1,42 @@
+$newline never
+\<!doctype html>
+\<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+\<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+\<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+\<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+
+    <title>#{pageTitle pc}
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    ^{pageHead pc}
+
+    \<!--[if lt IE 9]>
+    \<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    \<![endif]-->
+    <script type="text/javascript" src="@{StaticR js_jquery_3_4_1_min_js}">
+
+    \<!-- Bootstrap-3.3.7 compiled and minified JavaScript -->
+    <script type="text/javascript" src="@{StaticR js_bootstrap_min_js}">
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
+  <body>
+    ^{pageBody pc}
+
+    $maybe analytics <- appAnalytics $ appSettings master
+      <script>
+        if(!window.location.href.match(/localhost/)){
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '#{analytics}', 'auto');
+            ga('send', 'pageview');
+        }

@@ -1,0 +1,233 @@
+cabal-version:       1.24
+
+name:                JitCert
+version:             0.1.0.0
+-- synopsis:
+-- description:
+-- license:             BSD-3-Clause
+license-file:        LICENSE
+author:              James Parker, Aditya Zutshi, Karl Smeltzer
+-- copyright:
+-- category:
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+library
+  exposed-modules:     JitCert.Analysis
+                     , JitCert.GSNAnalysis
+                     , JitCert.Context
+                     , JitCert.DocGenerator
+                     , JitCert.DocGenerator.Types
+                     , JitCert.Docs
+                     , JitCert.Docs.Shared
+                     , JitCert.Docs.FunctionsCorrect
+                     , JitCert.Docs.ProgramIsSafe
+                     , JitCert.Docs.ProgramIsSafeSimplified
+                     , JitCert.Docs.UnboundError
+                     , JitCert.DotBackend
+                     , JitCert.Evidence
+                     , JitCert.Examples.OpenSSL
+                     , JitCert.Examples.UTM
+                     , JitCert.FIPS.Combinators
+                     , JitCert.UTM.Combinators
+                     , JitCert.UTM.Context
+                     , JitCert.UTM.Evidence
+                     , JitCert.UTM.Solution
+                     , JitCert.GSN
+                     , JitCert.GSN.Builder
+                     , JitCert.GSN.Builder.Internal
+                     , JitCert.GSN.Internal
+                     , JitCert.GSN.Combinators
+                     , JitCert.GSN.Types
+                     , JitCert.Internal
+                     , JitCert.Logic
+                     , JitCert.Nlp2Dsl
+                     , JitCert.Properties
+                     , JitCert.Query
+                     , JitCert.Solution
+                     , JitCert.SpecificationLang
+  build-depends:       base >= 4.10
+                     , aeson
+                     , bytestring
+                     , casing
+                     , containers >= 0.5.7.1
+                     , data-default
+                     , file-embed
+                     , filepath
+                     , fgl >= 5.5
+                     , graphviz >= 2999.18
+                     , parameterized-utils
+                     , mtl
+                     , network
+                     , prettyprinter
+                     , process
+                     , SHA
+                     --, sockets >= 0.5.0.0
+                     , text >= 1.2
+                     , time
+                     , utf8-string
+                     , word-wrap
+                     , yaml
+  extensions:          
+                       GeneralizedNewtypeDeriving
+                     , MultiParamTypeClasses
+                     , DataKinds
+                     , FlexibleInstances
+                     , GADTs
+                     , OverloadedStrings
+                     , RecordWildCards
+                     , FlexibleContexts
+                     , StandaloneDeriving
+                     , TemplateHaskell
+                     , TupleSections
+                     , TypeApplications
+                     , TypeFamilies
+                     , TypeFamilyDependencies
+                     , Trustworthy
+                     , ScopedTypeVariables
+                     , KindSignatures
+  hs-source-dirs:      src
+  ghc-options:       -Wall -fno-warn-orphans -fno-warn-name-shadowing -fno-warn-unticked-promoted-constructors
+  default-language:    Haskell2010
+
+executable jitcert
+  main-is:             Main.hs
+  hs-source-dirs:      src
+  other-modules:       JitCert.Context
+                     , JitCert.DocGenerator
+                     , JitCert.DocGenerator.Types
+                     , JitCert.Docs
+                     , JitCert.Docs.Shared
+                     , JitCert.Docs.FunctionsCorrect
+                     , JitCert.Docs.ProgramIsSafe
+                     , JitCert.Docs.ProgramIsSafeSimplified
+                     , JitCert.Docs.UnboundError
+                     , JitCert.DotBackend
+                     , JitCert.Evidence
+                     , JitCert.Examples.OpenSSL
+                     , JitCert.Examples.UTM
+                     , JitCert.FIPS.Combinators
+                     , JitCert.UTM.Combinators
+                     , JitCert.UTM.Context
+                     , JitCert.UTM.Evidence
+                     , JitCert.UTM.Solution
+                     , JitCert.GSN
+                     , JitCert.GSN.Builder
+                     , JitCert.GSN.Builder.Internal
+                     , JitCert.GSN.Internal
+                     , JitCert.GSN.Combinators
+                     , JitCert.GSN.Types
+                     , JitCert.Internal
+                     , JitCert.Logic
+                     , JitCert.Nlp2Dsl
+                     , JitCert.Properties
+                     , JitCert.Query
+                     , JitCert.Solution
+  build-depends:       base >= 4.9
+                     , aeson
+                     , bytestring
+                     , casing
+                     , containers >= 0.5.7.1
+                     , data-default
+                     , file-embed
+                     , filepath
+                     , fgl >= 5.5
+                     , graphviz >= 2999.18
+                     , JitCert
+                     , mtl
+                     , network
+                     , parameterized-utils
+                     , prettyprinter
+                     , process
+                     , SHA
+                     --, sockets >= 0.5.0.0
+                     , text >= 1.2
+                     , time
+                     , utf8-string
+                     , word-wrap
+                     , yaml
+  extensions:          GeneralizedNewtypeDeriving
+                     , MultiParamTypeClasses
+                     , DataKinds
+                     , FlexibleInstances
+                     , GADTs
+                     , OverloadedStrings
+                     , RecordWildCards
+                     , FlexibleContexts
+                     , ScopedTypeVariables
+                     , StandaloneDeriving
+                     , TemplateHaskell
+                     , TupleSections
+                     , TypeApplications
+                     , TypeFamilies
+                     , TypeFamilyDependencies
+                     , KindSignatures
+  default-language:    Haskell2010
+  build-depends:       JitCert
+
+executable fips
+  build-depends:       base >= 4.9
+                     , aeson
+                     , bytestring
+                     , casing
+                     , containers >= 0.5.7.1
+                     , either
+                     , filepath
+                     , fgl >= 5.5
+                     , graphviz >= 2999.18
+                     , JitCert
+                     , parameterized-utils
+                     , mtl
+                     , prettyprinter
+                     , process
+                     , SHA
+                     , text >= 1.2
+                     , time
+                     , utf8-string
+                     , word-wrap
+                     , yaml
+  main-is:             Main.hs
+  other-modules:       FIPS.Context
+                     , FIPS.Property
+  hs-source-dirs:      fips
+  default-language:    Haskell2010
+  extensions:          GeneralizedNewtypeDeriving
+                     , MultiParamTypeClasses
+                     , DataKinds
+                     , FlexibleInstances
+                     , GADTs
+                     , OverloadedStrings
+                     , RecordWildCards
+                     , FlexibleContexts
+                     , TypeApplications
+                     , TypeFamilies
+                     , TypeFamilyDependencies
+                     , ScopedTypeVariables
+                     , KindSignatures
+
+test-suite test-jitcert
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   tests
+  build-depends:    JitCert
+                  , base
+                  , containers
+                  , HUnit
+                  , SHA
+                  , time
+  main-is:          Main.hs
+  other-modules:    Analysis
+                  , Lookup
+                  , Query
+  extensions:          GeneralizedNewtypeDeriving
+                     , MultiParamTypeClasses
+                     , DataKinds
+                     , DoAndIfThenElse
+                     , GADTs
+                     , OverloadedStrings
+                     , RecordWildCards
+                     , FlexibleContexts
+                     , TypeApplications
+                     , TypeFamilies
+                     , ScopedTypeVariables
+                     , StandaloneDeriving
+                     , KindSignatures

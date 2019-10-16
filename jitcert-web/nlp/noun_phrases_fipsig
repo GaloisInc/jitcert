@@ -1,0 +1,1378 @@
+a maintenance access interface
+the authorized operators
+ventilation holes or slits
+spa
+physical access points
+critical security information
+a radio communications cryptographic module implements
+other forms
+capacitors
+external power
+a wire-wound package
+the schematics
+normal operating range
+ciphertext buffers
+table
+a key agreement method
+one state
+grade enclosure
+expansion boards
+approved security function
+the normal operating range
+keystroke information
+the knowledge or possession
+eia telecommunications systems bulletin
+specific mathematical operations
+critical functions test
+deletions
+an applicable security function or operation
+analysis
+removal or penetration
+digital devices
+other tamper detection mechanisms
+power-up
+documentation
+telecommunications industry association
+design assurance design assurance
+visible signs
+tsf
+the following specifications
+the cryptographic module components
+the following documentation requirements
+a commercially-available general purpose operating system
+reduces
+the vendor
+an n-bit block
+keys
+the data output
+a static non-modifiable virtual operational environment
+circuitry
+the length
+memory
+minimal physical protection
+an error indicator
+firmware
+random number generation
+errors
+the overall risk
+self-tests
+audited events
+the service
+the relationship
+security events
+tampering
+all components
+the following power-up tests
+the associated cryptographic algorithm test
+the key generation process
+the manually entered values
+a state transition diagram
+all cases
+all security
+informal toe security policy model
+unauthorized use or modification
+environmental failure protection
+the entry or output
+officer guidance
+this standard
+the implementation
+all hardware components
+ground
+the variations
+audit functions
+a direct
+this attack
+executable code
+the major hardware components
+hard plastic production
+which
+a single integrated circuit
+an external power source or batteries
+control information
+shared intermediate values
+the inputs
++400 fahrenheit
+hardware description language
+no additional requirements
+java virtual machine
+delivery and operation delivery and operation
+rom
+a correct and secure manner
+substitutes
+means
+the embodiment-specific requirements
+such types
+the environmental failure protection features
+a combination
+specific services
+a computer o
+the scope
+environmental failure protection features
+the separation
+a bypass capability
+associated equipment
+hard errors
+service outputs
+operations
+word processors
+lieu
+annex d
+csps
+the first n bits
+bypass states
+a rationale
+the keys
+services
+the cryptographic keys
+a false acceptance
+no visible display
+the results
+selected roles
+hard plastic production-grade enclosure
+the services
+their patterns
+the value
+trusted path
+the following tests
+hardness and adhesion characteristics
+key storage cryptographic keys
+the potting material or enclosure
+the maintenance access interface
+the security functions
+security levels
+the input data path
+status data output
+a single error
+api
+other authorized individual
+all security functions
+verification
+cryptographic initialization or management functions
+protected vents
+both
+the rng
+data
+environmental conditions
+security parameters
+a sealing coat
+the manipulation
+one or more physical ports
+other unprotected csps
+configuration management , delivery and operation
+doors
+the manual key entry test
+thread
+the administrative functions
+all power
+the key
+the same port
+summary
+the status
+audit data
+a set
+the selected role
+the protection profile
+substitute cryptographic keys
+removable covers
+a password
+programmable firmware
+evidence tape
+person
+power-up tests power-up tests
+operators
+it
+a single operator
+the control
+a standalone device
+operator authentication authentication mechanisms
+a single operator mode
+a bypass service
+user states
+these requirements
+an approved key transport method
+a minimum
+automated methods
+any additional requirements
+indicators
+accuracy
+the finite state model
+the preconditions
+all applicable fcc requirements
+user
+cryptographic algorithms
+the unintentional output
+two general categories
+the physical security
+the doors or covers
+an enclosure
+a cryptographic boundary
+an extent
+each rng
+two key components
+an approved nondeterministic
+class b
+cryptographic module specification
+operating systems
+the initiator and target
+comparison
+logical maintenance services
+the following cryptographic software components
+electromagnetic compatibility
+the host platform
+specific conditions
+manual
+ic
+the general requirements
+smart cards
+the coating
+electromagnetic interference
+modules
+physical security mechanisms
+a high-level specification language
+the resulting value
+the deterministic rng
+level
+cryptographic modules
+another cryptographic module
+a random attempt
+no information
+the values
+the applicable requirements
+two independent implementations
+firmware or schematics
+two different software flags
+the efp features
+non-approved
+the plaintext values
+instructions
+otar
+maintenance services
+an operating environment
+the maintenance coating
+the same goals
+any removable covers or doors
+initialization vectors
+a tamper-evident coating
+physical security features
+public keys
+parameter values
+the standard
+the ` ` status output
+each other
+the known - answer test
+1,000,000
+a hard epoxy material
+abstraction
+the following mechanisms
+the continuous random number generator test
+the smallest positive voltage
+function calls
+the inadvertent bypass
+proper functioning
+the tamper detection envelope
+firmware load test
+intermediate key generation values
+the original cryptographic key
+production-grade components
+physical security
+other roles or sub-roles
+accidental excursions
+power analysis
+external forces
+a product
+a rigorous notation
+maintenance
+associated module documentation
+this cryptographic mechanism requirement
+hardware components
+signals
+embedded cryptographic modules
+the existence
+the emission
+a rng produces fewer
+engineer
+each version
+blocks
+a digital signature
+removable cover
+the maintenance role
+possession
+the multiple-chip embodiment
+that one or more roles
+the identified operator
+these components
+the trusted path
+other techniques
+the functional specification
+all entry and exit points
+an error detection code
+manual key entry test
+the users
+functions
+apco project
+pick-resistant locks
+unauthorized attempts
+the input events
+non-approved security functions
+tamper-evident mechanisms
+drilling
+the entire module
+voltage manipulation
+testing
+such an attack
+the ` ` data output
+all information flow
+addition
+tamper detection mechanisms
+evidence
+all applicable rng requirements
+a plaintext value
+authorized operators
+the key establishment method
+the digital signature
+data input interface
+two separate actions
+logical controls
+a representation
+unauthorized disclosure
+a tamper detection envelope
+production-grade production-grade enclosure
+data components
+i
+assurance
+an internal battery
+the contents
+all plaintext secret and private keys
+the edc
+no additional security level requirements
+cryptographic key , or equivalent
+physical embodiments
+firmware integrity test
+all security-specific hardware
+security
+ivs
+the state transition diagram
+a form
+chip
+protocol
+all embodiments
+annex b
+home use
+evident seals
+all modes
+the perspective
+established mathematics
+opaque tamper-evident coating opaque tamper-evident opaque enclosure
+a functional specification
+the physical security requirements
+digital signature algorithm
+a strong enclosure
+mitigation
+evaluation security functions
+random number
+digital signatures
+the status output interface
+the exclusion
+passwords
+temperature
+security requirements
+holographic seals
+the following events
+timing fluctuations
+the authentication data
+more than one role
+the physical embodiment
+operational environments
+physical ports
+each attempt
+operating system requirements security level
+one or more logical interfaces
+any microprocessors
+the set
+corresponding services
+internal power sources
+feedback
+a cryptographic module and module components
+the source code
+each cryptographic module hardware
+a security-relevant crypto officer function
+role-based authentication
+plaintext data
+a formal specification language
+role-based authentication mechanisms
+processes
+all physical embodiments
+logical interface
+these errors
+accesses
+at least bits
+four logical interfaces
+the seed value
+the power-up tests
+the time
+the rules and characteristics
+a cryptographic algorithm test
+the current status
+public and private keys
+the purpose
+the general physical security requirements
+electrical power consumption patterns and timings
+the ` ` data input
+cryptographic processing
+a cryptographic algorithm or process
+other security
+length
+repair
+a high probability
+tamper detection
+the next n-bit block
+authentication data management mechanisms
+the addition
+security evidence
+single ic chips
+other attacks
+maintenance access interface
+an error state and output
+all cryptographic functions
+manual controls
+the security
+a cryptographic module
+multiple communication channels
+unauthorized physical access
+resource manager
+any output interface
+the assumption
+the software and firmware source
+erratic operation or failure
+authentication technique
+a state transition table
+multiple-chip embedded cryptographic modules
+all data
+crypto officer role
+one method
+edc
+all authorized roles
+each subsequent generation
+classified applications
+biometrics
+business use
+the individual operations
+at least one approved security function
+timing analysis attacks
+the following pair-wise consistency tests
+an independent known-answer test
+guidelines
+the first n-bit block
+a non-flexible , brittle circuit
+o physical port
+tempest attacks
+the logical interfaces
+the seed and seed key
+demand
+annex c
+the formal model
+multiple-chip
+an approved authentication technique
+deterministic rngs
+this case
+/ delete
+other electronic key
+different sets
+cryptographic modules security production-grade components
+requests
+an attempted authentication
+entry
+all software and firmware components
+a trusted mechanism
+adapters
+manual methods
+extreme environmental conditions
+group
+knowledge
+configurable smart card o / s
+emc requirements
+the addition or deletion
+statistical methods
+an audit mechanism
+100,000
+access user authentication data
+a key
+at least one degree bend or obstruction
+the electronic devices
+the following additional requirements
+electronic circuitry or devices
+chip or enclosure
+the attacks
+cryptographic data
+subpart b
+a word processor
+a cryptographic module security policy
+concurrent operators
+the known-answer test
+the appropriate physical security mechanisms
+the proper operator guidance documentation
+peel
+bits
+factory-set or default authentication data
+some n
+the previously generated output
+a pair-wise consistency test
+the secure operation
+the entire lifecycle
+permanent magnetic actuators
+the same value
+a tamper-evident passivation material
+systems
+certain features and implementations
+some cases
+the physical ports
+security automatic zeroization
+the same manner
+the precondition and postcondition annotations
+a seed
+installation
+the holes or slits
+zeroization
+the cryptographic boundary
+encryption
+the digital signature standard
+firmware components
+other power-up
+other services
+program memory
+the tamper response and zeroization circuitry
+the following authorized role
+physical access
+the patterns
+the algorithm
+a hard opaque tamper-evident coating
+a service output
+configuration management configuration management
+the algorithms or processes
+data output interface
+communications
+all output signals
+an error state exists
+cryptographic software and firmware
+a hard coating
+failure
+the cryptographic boundary surrounding
+a software
+the key components
+class a
+a one-minute period
+plaintext form
+this
+the generated key
+a power port
+the hardware components
+radios
+eft
+a maintenance state
+the operational environment
+knowledge procedures
+normal operation
+each security level
+the error states
+the software and firmware components
+identity-based authentication mechanisms
+essential
+fluctuations
+plaintext secret and private cryptographic keys
+temperature extremes
+any software and firmware components
+additions
+switches
+each service input
+success or failure
+the operation
+pair-wise consistency test
+magnetic hall effect
+a previously generated result
+any enclosing
+all validated software and firmware components
+the secure delivery
+tamper evidence
+a rng
+proper selection
+any doors
+security policy
+unauthorized modification and substitution
+strong encapsulation
+authentication mechanisms
+a high-level language
+the cryptographic module
+non-approved modes
+all cryptographic software and firmware components
+state transition table
+plaintext and encrypted
+the requested role
+the operating temperature or voltage
+''
+a limited operational environment
+environmental failure testing procedures
+that appropriate actions
+that store
+the removal-resistant coating
+the initialization
+key storage
+data and control
+electronic methods
+the next n generated bits
+a maintenance role
+the previously generated block
+sensitive information
+the original key
+all
+comments
+an ip address source
+the selection
+unauthorized disclosure and modification
+the capability
+output buffers
+efp
+temperature and voltage
+conditional tests
+various levels
+` ` hard
+they
+the authentication mechanisms
+cryptographic program images
+access
+the authorization
+the behavior
+direct current
+software and firmware components
+applicable multiple-chip enclosure
+the cryptographic algorithm test
+crypto officer guidance
+the zeroization
+cryptographic keys
+conditional self-tests
+removable covers and doors
+n key components
+the preconditions and postconditions
+the security mechanisms
+sources
+implementation environment
+the user role
+a computer
+power analysis attacks
+control buffers
+the authentication mechanism
+both general and embodiment-specific
+the cryptographic algorithm
+another
+key zeroization
+pc cards
+brief summaries
+an authentication mechanism
+the authentication
+these services
+tempest
+requirements
+procedure
+two implementations
+information
+module components
+the operating environment
+tamper-evident enclosure
+timing analysis
+the previously generated n bits
+microwaves
+a keyboard
+manual key entry
+the original key other
+private keys
+the calculation and verification
+external processes
+the operator
+key establishment methods
+a flexible mylar printed circuit
+bypass test
+an approved message authentication code
+software or firmware
+the protection circuitry shall
+some knowledge
+an error
+maintenance , service
+a modifiable operational environment
+no time
+an equipment malfunction
+an exclusive cryptographic service
+the cover
+environmental or other physical damage
+the known answer
+encrypted cryptographic keys
+an informal proof
+values
+a cryptographic module security functionality
+services services
+each call
+the ciphertext
+that environmental conditions or fluctuations
+the following requirements
+all cryptographic software and firmware
+a manually-transported key loading device
+an approved key establishment method
+power consumption
+user behavior
+a known-answer test
+output requirements
+/ operational
+warnings
+each role
+the underlying algorithms or processes
+the roles
+covers
+design errors
+hdl
+serial and a parallel port
+light emitting diodes and displays
+multiple chip encapsulation
+strong response
+standard exists
+direct observation
+corresponding service outputs
+operational environment
+key entry
+each
+guidance documents
+the limited use
+logical keys
+an approved integrity technique
+encrypted form
+penetration attempts requirements
+each configuration item
+one
+other ports and interfaces
+multiple roles
+a single ic chip
+dpa
+approved rngs
+etch-resistant coating
+all levels implementation
+each channel configuration
+such attacks
+the applicable power-up tests
+applicable physical , logical , and electrical characteristics
+response and zeroization envelope
+all hardware
+pick-resistant mechanical locks
+ciphertext data
+the ` ` control input
+the self-tests
+the previously generated result
+emc
+the individual identity
+security level documentation
+unauthorized operators
+primary , secondary , or backup power
+an authenticated operator
+visual verification
+examples
+an approved deterministic rng
+the tamper detection mechanisms
+operator intervention
+the embodiment-specific physical security requirements
+login
+any role
+an error state
+identity-based authentication
+deployment
+the output data path
+the cc evaluation assurance level
+key entry services
+a production
+other paths
+alternative
+user guidance
+execution
+the applicable security level requirements
+any cryptographic operations
+development development
+firmware test
+output
+zeroization penetration resistant enclosure
+multiple chip access interface
+single-chip cryptographic modules
+functional specification
+the output events
+the timing information
+a video screen
+software
+the key generation methods
+a physical key
+the temperature range
+transitions
+recommended development practices
+the types
+new technology standards project
+the requirements
+module type
+conformance
+code
+all other ports
+microswitches
+cryptographic initialization
+removable seals
+particular concern
+unintentional radiators
+authentication
+undetected physical probing
+all cryptographic keys
+the following software
+an explicitly defined perimeter
+input and data and status
+private cryptographic keys
+the audit requirements
+cryptographic processes
+any services
+attempts
+plaintext secret and private keys
+a tamper-evident enclosure
+all cryptographic modules
+the secure use
+input
+finite state model
+the attacker
+general requirements single-chip multiple-chip embedded multiple-chip standalone
+material
+the postconditions
+the rate
+the key entry and output methods
+output data
+any notation
+system and operator
+all security-related information
+authentication data
+random number generators
+the security level
+general purpose operating system capabilities
+the error
+the performance
+physical security requirements
+functionality
+the key generation method
+approved deterministic rngs
+key generation methods
+all output data
+data inputs and control inputs
+pick-resistant enclosure
+secure installation
+simple power analysis
+the module security policy
+the audit trail
+shutdown
+manipulation
+the voltage range
+initiate
+level cover
+the cryptographic module interfaces
+the tests
+a general purpose computer
+the audit mechanism
+cryptographic key management
+removal-resistant and circuitry embodiment or circuitry embodiment
+power
+an exclusive bypass service
+multiple attempts
+all defined input and output data paths
+electromagnetic signals
+logical interfaces
+the original plaintext value
+the tia
+the discretionary access control mechanisms
+the inadvertent output
+the implementation representation
+devices
+theory
+key distribution
+the physical security mechanisms
+the physical bounds
+the circuitry
+best practices
+selection
+hostile environments
+the representation
+two hardware gates
+greatest risk
+error states
+a failure
+the allocation
+the calculated result
+tamper response
+tamper detection and response mechanisms
+a cryptographic module implements
+the correct configuration
+all data or control inputs
+place
+the functional requirements and specifications
+the crypto officer services
+modification
+such time
+the physical port
+-150
+a constant value
+characters
+a conformal coating
+a defined cryptographic boundary
+an equivalent evaluated trusted operating system
+the power consumption
+logical status indicators
+cryptographic software
+approved security functions
+module initialization
+private and secret keys
+/
+power cycling
+internal module conditions
+seed
+the polarity
+proprietary algorithm or method
+cable
+an additional embedded validated module
+implementation
+tokens
+the following cryptographic module software or firmware components
+bypass capability
+power sources
+testable security requirements
+the control input interface
+emi
+plaintext cryptographic key components
+environmental failure testing
+the specified normal operating ranges
+microcode or system software
+a function
+digital radio technical standards
+an attempt
+the shared values
+a serpentine geometric pattern
+proof
+the correspondence
+a seed key
+the analysis
+all other interfaces
+a cryptographic process
+the physical and / or logical maintenance services
+maintenance states
+the supported authentication mechanisms
+the rules
+the temperature or voltage fall
+power-up tests
+the normal operating ranges
+high-level specification languages
+pins
+the public key
+entry states
+other authorized methods
+a block diagram
+individual instructions
+an operating system
+the output
+another module
+the risk
+the electromagnetic signals
+other authorized individuals
+the following services
+some combination thereof that implements
+user role
+attacks
+the chance
+a substantial blocking material
+duplicate entries
+the cryptographic key or csps
+return codes
+the operating system requirements
+the generation
+administration
+the selected roles
+messages
+the management
+control inputs
+section
+a high-level description
+self-test states
+the mechanism
+two or more ic chips
+physical maintenance
+the same cryptographic algorithm
+an approved mode
+the protection profiles
+tamper-evident seals
+two or more plaintext cryptographic key components
+the target
+the first time
+standard passivation techniques
+sensitive data
+software development practices
+one or more specific attacks
+milling
+january
+` soft
+differential power analysis
+associated tests
+an application program interface
+the authorized role
+key components
+the detection
+the correct entity
+all physical access paths
+plaintext
+enclosure
+special shielding
+a cryptographic module vendor
+false acceptance error rate
+-100
+that test
+the following continuous random number generator test
+procedural controls
+message digest algorithms
+the crypto officer , procedures
+the module vendor
+all input
+the rationale
+security functions
+a key transport method
+the consistency and completeness
+the data output interface
+a cryptographic module and component interconnections
+operation
+tamper
+status outputs
+the tamper response
+the following authorized roles
+inputs
+a public key algorithm
+security level
+all external electrical power
+previous authentications
+identification
+further operation
+a non-programmable pc card
+the service inputs
+features
+a non-approved rng
+pin
+key entry and output cryptographic keys
+a software component
+the corresponding transitions
+multiple - chip
+solvency characteristics
+the modules circuitry
+the enclosure
+all cryptographic software
+a door
+initialization
+hard opaque removal-resistant tamper detection envelope
+the private key
+tamper response circuitry
+recovery
+ftp_trp .1
+crypto officer states
+the use
+a particular range
+the following
+assembly language or microcode
+buttons
+a cryptographic key
+power-up self-tests
+the key establishment methods
+startup
+routers
+all operators
+the key zeroization methods
+the design
+keyboards
+the outputs
+use
+a trusted path
+an operator
+whose outputs
+n bits
+key /
+a dedicated i
+this trusted path
+whose disclosure or modification
+first order logic
+network cabling
+.1
+physical indicators
+firmware component
+reset
+assumptions
+a unique identification number
+the security requirements
+the general security requirements
+a given set
+the timing measurements
+a biometric device
+periodic testing
+the tsf
+hardware
+accessing plaintext secret
+cryptographic key components
+the procedures
+this standard secret keys
+all non-operating system processes
+other critical security functions
+authorized roles
+ram or software
+key establishment key establishment
+the probability
+the validation
+the two values
+the hardware
+other processes
+as least as many operations
+two independent internal actions
+a non-approved algorithm
+the emi
+manually-entered cryptographic keys
+the correct output
+show status
+the smallest negative voltage
+limited physical security
+at least one
+the entire enclosure
+standard passivation
+all operational and error states
+a manner
+fault induction
+no underlying general purpose operating system
+the test
+listings
+each operator
+the attackers
+each service
+zeroization circuitry
+a tamper-evident material
+the role
+one physical port
+the physical configuration
+n >
+special treatment
+other hardware components
+a hard opaque epoxy
+some combination
+the attack
+the module component , function
+the input and output
+a crypto officer role
+the crypto officer role
+the requirement
+other protected information
+the passivation
+the corresponding services
+cryptographic module ports and interfaces
+control data
+various types
+voltage and temperature
+the security policy
+substitution
+the key entry
+whose source code
+standalone cryptographic modules
+security level tamper detection and tamper response
+tamper-evident locks
+a single point
+each key component
+the components
+the previous level
+bleeding paint
+motion detectors
+the same level
+all data output
+an approved key generation method
+any hardware
+the strength
+!
+separate authentication
+s
+the conditions and actions
+an analysis
+an approved algorithm or security function
+a low-level language
+appendix b
+other approved security functions
+an approved rng
+federal regulations
+the cryptographic key
+serious damage
+susceptibility
+the manual
+key establishment
+a cryptographic service
+that
++200 celsius
+a secure manner
+maintenance , service or repair
+acceptable means
+the environmental failure tests
+standalone security level removal
+a finite state model
+cryptographic keys and audit data
+the modules security policy
+respect
+annex b.
+the duplicate entries
+the correct operation
+the identity
+the authorized methods
+input data
+a configuration management system
+general security services
+destination table
+only approved key establishment methods
+a formal model
+e.g.
+the following requirement
+cryptographic functions or processes
+the functional interface
+the cryptographic module security policy
+some services
+physical and logical maintenance testing
+response level voltage
+automated and manual methods
+the electrical power consumption
+the key entry requirements
+there
+software or firmware components
+that cause transitions
+aaca
+the voltages
+the resulting ciphertext value
+roles
+a hard , opaque removal-resistant coating
+the tamper-evident coating
+the following operational and error states
+the conditions
+general physical security requirements
+this version
+the key management mechanisms
+operational keys
+the module
+maintenance role
+the key storage methods
+password or pin
+the electronic devices and circuitry
+conductors
+strong enclosures
+simulation
+users
+all data and status outputs
+the execution
+key management
+a metal
+normal operating ranges
+hard opaque tamper-evident hard opaque potting material hard opaque potting material level
+cover switches
+record modifications
+methods
+electrical power consumption
+the mechanism or logic
+seeds
+development
+a cover
+all plaintext secret and private cryptographic keys
+status information
+the four security levels
+the digital signature algorithm
+the bypass capability
+the operating system
+data outputs
+status
+service inputs
+those
+states
+currently known attacks
+the features and implementations
+other approved or non-approved functions
+versions
+these states
+cryptographic programs
+non-approved rngs
+three defined physical embodiments
+the circuitry and processes
+the switching procedure
+the interfaces
+a self-test
+two different software or hardware flags
+associated documentation
+all user responsibilities
+the following bypass tests
+a cryptographic mechanism
+any two compared n-bit blocks
+all input data
+other
+software diagnostics
+appendix c
+status data
+reasonable assurance
+fault induction attacks
+personal characteristics
+status output interface
+a positive tsf-to-operator connection
+rngs
+the software
+other states
+cryptographic algorithm test
+nondeterministic rngs
+the remote or external detection and collection
+explicit requests
+decryption
+crypto officer functions
+the following manual key entry tests
+three distinct physical embodiments
+interface
+an approved security function
+an edc
+control input interface
+firmware load tests
+o devices
+any
+any two compared n-bit sequences
+a known answer
+the cryptographic module component , function
+the trusted path function
+` output
+continuous random number generator test
+the ports and interfaces
+annex
+the operating temperature and voltage
+a hard potting material
+the external ports and interfaces
+the consistency
+at least as many operations
+the approved security functions
+control
+the processor
+the functional requirements
+an approved algorithm
+an authorized role
+unusual environmental conditions or fluctuations
+form
+the calculated output
+the visible spectrum
+multiple-chip standalone cryptographic modules
+cryptographic module
+key generation
+the on-demand initiation
+the cc assurance level
+part
+section documentation
+operating system
+indications
+i.e.
+invalid input
+that role
+plaintext cryptographic keys
+a general purpose operational environment
+an important component
+security services
+purpose application software
+each approved cryptographic algorithm
+cryptographic operations
+a switch
+authentication methods

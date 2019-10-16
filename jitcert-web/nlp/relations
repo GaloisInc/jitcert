@@ -1,0 +1,951 @@
+generate
+implemented
+specify
+shall apply
+shall be inhibited
+require
+listed
+shall implement
+comprises
+shall permit
+may be included
+requires
+meets
+meets the requirements specified in
+shall able to determine
+is securely delivered to and
+shall perform
+may contain
+shall indicate
+shall prevent
+shall specify
+shall consist of
+establishes
+spawned by
+owned by
+if is entered during shall meet
+if is entered during
+shall meet
+shall meet the key entry requirements specified in
+shall output encrypted form or
+shall not interrupt during
+if is used shall support
+shall support
+the target of shall support
+involves
+data is already known and
+is already known and
+involves operating on
+specifies
+may be of
+shall specify
+if consists of
+shall contain and
+shall fail
+shall be activated exclusively by and
+protects from
+provides
+corresponds to
+generally rely on
+generally rely on the analysis of
+in shall be recorded by
+can be excluded from
+do not affect
+in attempt and within
+in attempt to determine and within
+refers to
+shall be applied to within
+vary for
+outputs vary for
+shall be tested using or
+shall be tested
+shall apply to
+contained within
+may be incorporated as
+shall have
+may be performed by or
+may be performed by use of or
+if are employed by
+shall be used
+shall apply to for
+shall apply to for shall specify
+see
+can be divided into
+can be divided into two general categories and
+are listed in to
+security level in and shall also apply to for and csps and
+shall also apply to for and csps and
+the following requirements shall also apply to for and csps and
+shall be under
+shall also apply to for security level and csps and
+do not apply to
+any hardware software or can be shown
+any hardware or firmware can be shown
+any hardware or components can be shown
+can be shown
+can be shown not to affect
+do not apply to not available to or
+if includes then
+if includes independent implementations of then may be omitted
+security level in shall also apply for and csps and
+shall also apply for and csps and
+the following requirements shall also apply for and csps and
+shall also apply for cryptographic keys and csps and
+shall be under
+shall also apply for security level and csps and
+if contains
+software or firmware components shall specify
+shall specify
+clearly depict
+an operating system meets
+shall be evaluated at or
+meets
+meets the functional requirements specified in
+shall specify and
+shall specify specify and
+shall specify and describe
+an operating system meets and
+meets and
+meets the functional requirements specified in and
+involves
+if contains
+shall specify or
+if in shall be implemented
+if in shall be implemented as specified in
+if in shall be implemented over-the-air-rekeying
+approved
+shall be applied to within
+encompass and
+shall specify
+are excluded from and
+are obtained through
+is not required for
+is not required for any software and components excluded from
+includes
+includes random number and
+shall be configured to
+if does not equal
+shall fail
+firmware test shall fail
+may also employ
+specify the set of can execute
+can execute
+if is used
+has but
+shall be at
+security level in shall apply to
+shall apply to
+the following requirement shall apply to
+shall apply to shall specify
+informally describes
+utilize
+csps refer to and
+are encrypted
+are encrypted using or
+bypass
+is activated and
+are provided without
+is activated and transferring through
+shall be tested
+shall be tested when is powered up as
+when is powered up as
+when is powered up as part of
+security level in and shall apply to for
+shall apply to for
+shall apply to for security level
+shall be tested as
+cryptographic keys and encrypted
+if is used are not required
+encrypted
+shall be protected within
+shall meet if is used
+encrypted using
+if is used shall meet
+shall meet
+if is used
+if is used e.g.
+if is used a cryptographic key is derived from
+are not required
+are not required to meet
+shall specify
+functions and
+functions critical to and
+methods may reduce include and
+may reduce
+may reduce the overall risk of
+include and
+include the use of to level and
+shall be protected within
+shall be implemented
+may be entered into or
+shall be implemented using
+a high-level language except is allowed
+is allowed
+is allowed if essential to or
+specify the set of can modify
+can modify i.e. write and
+can modify
+shall specify and
+timing analysis rely on
+rely on
+if is used
+if is used shall be implemented
+shall be implemented
+shall be implemented using
+may employ
+conditional tests shall be performed by
+shall be performed by
+conditional tests shall be performed by
+when specified for
+is analyzed
+is analyzed to determine
+specify the set of can read and
+can read
+if are entered into or
+shall be performed via
+shall be performed using via
+specify the set of can enter and csps
+the set of can enter and csps
+can enter and csps
+may be used
+may be used to exploit
+shall apply to shall specify
+a formal model describes
+describes
+shall apply to
+security level in and shall apply to
+the following requirements shall apply to
+shall be entered in
+assume
+has
+if approved or
+shall pass
+shall pass the continuous random number generator test as specified in
+are listed in to
+shall prevent and
+shall prevent and executing from
+entered into or from and
+entered into or from and used in
+shall be specified
+shall be specified using
+using a formal specification language a rigorous notation based on
+a formal specification language a rigorous notation based on
+shall be specified set
+shall specify
+in refer to
+in refer to all non-operating system processes
+if generates then shall be performed
+if generates then
+if generates public or keys then
+shall be performed
+shall be performed if are used
+if are used
+if are used to perform
+then shall encrypt
+may be entered into or
+until approved for
+until approved for may be used for or to
+until approved for use in
+shall specify
+demonstrates
+shall specify and
+shall prevent and
+shall be compared to
+shall prevent and executing from
+utilize
+shall specify
+then shall fail
+shall provide
+shall provide an audit mechanism to record
+shall associate
+if contains
+can be used in
+shall list
+can be used in revealing and
+shall list all security functions
+if contains then shall be included
+can be used in an attempt to reverse
+shall list approved and
+are employed by and
+approved and
+appear
+appear to be at
+may be used for
+may be used for the purpose of
+shall comply with
+shall comply with all applicable rng requirements of
+if differ
+if differ then shall be used
+then shall be used
+then shall be used to decrypt
+then shall be used shall be compared to
+may be used
+may be used to reduce
+shall fail
+shall be used for
+shall be used for the generation of
+involve
+manually entered
+entered using
+entered
+shall be recorded by
+shall be recorded by attempts to provide and
+if are used then
+if are used to perform then
+if are used then shall be tested by
+shall be tested by
+shall be used
+shall be used to document
+may be used as
+may be used as input
+if are manually entered into
+then shall not be displayed
+can be used
+can be used to obtain
+can be used displayed on and
+displayed on and
+can be used other forms of
+if can not be verified
+shall not have
+shall specify
+shall specify
+shall specify all security-related information including
+shall specify
+the mechanism used
+shall specify
+shall be entered into and from
+shall specify
+shall include
+shall include the rules derived from
+shall include see
+if is designed
+if is designed to mitigate
+then shall specify
+may be entered into or
+if can be externally loaded into then
+shall be performed
+firmware load tests shall be performed
+shall be applied to
+when are externally loaded into
+shall be performed shall be applied to
+will be validated
+shall restrict to
+shall restrict all information flow and to
+define
+define all entry and points to and from
+shall be entered into and
+will facilitate to and
+will facilitate to and will reduce
+is not required for
+is not required for any software and components excluded from
+although may share
+crypto
+is concerned with
+shall be compared
+shall be compared a previously generated result
+shall include or resulting from to
+shall include a representation of or resulting from to
+shall include using or resulting from to
+state transition table shall specify
+shall specify
+shall specify all operational and states of
+resulting from to
+resulting from transitions from to
+if employs shall perform on
+shall perform on
+shall perform the following continuous random number generator test on
+tests for
+tests for failure to
+may be defined as
+describes along
+describes the security functions of along
+shall be entered into or either in
+shall be entered into or either in encrypted form or
+shall be entered into or either in using i.e. as
+if does not equal
+shall fail
+firmware load test shall fail
+to process
+to process audit data stored in
+access user authentication data associated with
+shall separately authenticate
+if can not be verified or
+do not match
+shall have
+produces
+produces shall not be used but
+if supports a
+if supports a describes
+if supports a maintenance role
+shall be compared
+shall fail
+if are manually entered into
+then shall be performed
+shall have
+shall be directly entered into or from via
+where may inadvertently be stored or
+if is used
+shall be at
+except entered via
+except entered via shall enter via
+shall employ
+shall employ in to restrict and
+shall be required
+shall be required to reconstruct
+shall be compared
+rng produces or
+rng produces or reset for
+shall specify as and
+shall specify as and logical interfaces of
+regarding user behavior relevant to
+fails
+fails if equal
+shall either be performed procedurally by or automatically
+if bypass where may be provided without
+if bypass where may be provided without transferring through
+shall prove and
+shall prove if is required and
+if is required
+if knowledge of is required
+if is required to reconstruct
+then provides
+then provides no information about
+shall exit via
+then shall be performed
+then shall be performed to ensure
+will not result in
+will not result in shall test for
+shall test for
+shall test for when takes between
+when takes between
+when takes place between
+when takes between an exclusive bypass service and
+will not result in the unintentional output of
+shall specify
+shall specify
+shall be inhibited
+when exists and during
+are explicitly excluded from but
+security level in shall apply to for
+shall apply to for
+the following requirement shall apply to for
+shall apply to for shall provide
+shall provide
+shall provide evidence of
+shall apply to for security level
+shall be stored in
+shall include
+commands and
+providing with then shall test for
+then shall test for
+providing when is modified
+when is modified
+security level in and shall apply to for
+shall apply to for
+if contains or
+if is defined
+then shall contain
+the following requirements shall apply to for
+shall apply to for security level
+shall specify
+shall associate
+e.g. person or is assigned
+person group or is assigned
+person or process is assigned
+is assigned
+shall specify
+shall specify the key storage methods employed by
+shall immediately zeroize and
+is removed or
+shall provide and
+shall provide methods and
+shall provide to zeroize and within
+if allows
+if allows to perform
+to perform
+to perform maintenance services
+to perform then shall support
+then shall support
+then shall support the following authorized role
+the following authorized role assumed and or
+assumed and or
+assumed to perform and or
+for shall be annotated with
+specify
+expected
+expected to true
+expected when complete
+refers providing and and
+is properly tested
+refers providing and developed and
+is provided
+shall operational when secret and cryptographic keys or are contained within
+are contained within
+shall be zeroized
+shall be zeroized when entering or
+are specified for
+may be specified
+may be specified using
+using any notation is sufficiently detailed
+is sufficiently detailed
+is sufficiently detailed to completely and explain
+shall specify
+shall specify the key zeroization methods employed by
+may support
+may support other roles or in
+is not required
+is not required when is provided or
+when is provided or
+when is provided or maintained internally to
+is not required an internal battery
+if contains then shall be constructed in
+shall specify
+if contains
+then shall be constructed in
+prevents
+prevents undetected physical
+require
+specifies
+are realized in
+specifies providing
+shall meet
+shall meet the following requirements for
+is implemented completely in is provided solely by
+is provided solely by
+is provided solely by the host platform
+is implemented completely in
+is implemented completely in software such
+shall distinguish between for
+shall refer to or
+may perform in
+functions can be performed by
+may perform in addition to
+can be performed by
+shall detect by
+shall detect by means as
+security level in and shall apply to for
+shall apply to for
+the following requirement shall apply to for
+shall apply to for security level
+entering via
+shall only pass through
+if fails a shall enter via
+if fails a
+shall enter via
+shall enter an error state and via
+shall consist of
+shall consist of all data or to
+initiate or
+shall only pass through
+shall not perform while
+shall not perform any cryptographic operations while
+shall not perform while an error state
+shall involve
+will not compromise
+will not compromise the security of
+shall involve to provide
+shall contain upon
+shall continuously monitor and
+shall either include or
+shall either include environmental failure protection features or
+shall be inhibited
+shall consist of
+shall consist of all data and result from
+all data and result from
+result from
+shall be logically disconnected from
+shall be logically disconnected from while performing
+shall result in
+shall operational when plaintext cryptographic keys and are contained within
+are contained within
+the following requirements specific to
+shall provide to
+shall provide the following services to
+shall provide to show
+shall provide to operators
+
+shall demonstrate
+
+if falls outside
+at shall be compromised
+run
+are specified for
+may be used as or
+a single integrated circuit may be used as or
+ic chip may be used as or
+which may be used as or
+may be used as a standalone device or
+to prevent shall be required or or
+to prevent shall be required to output through or or
+can cause
+to prevent shall be required or or are set
+the electronic devices or can compromise
+are set
+the electronic devices or circuitry can compromise
+initiated or
+can compromise
+are set serially from
+can compromise the security of
+shall specify states
+shall specify
+states
+states can enter
+can enter
+can enter when fails and
+states necessary
+may include or
+i.e. may include or
+may include or returning to
+security level in shall apply or
+shall apply or
+the following requirements shall apply or
+shall apply to single-chip for or
+shall be covered with
+can not be compromised by
+can be provided by
+can be provided by employ or
+shall be from
+the smallest negative voltage with causes
+causes
+the smallest positive voltage with causes
+causes
+security levels and for and may be shared physically and with
+may be shared physically and with
+security levels and for security levels and and used for and may be shared physically and with
+shall be performed by
+when is powered up after etc
+when is powered up after being powered off etc
+shall specify
+shall be protected against
+and is not required
+and is not required to employ or
+security levels and is not required
+may be provided in
+may be provided in may be provided in
+may be provided in
+may be provided in the user role and
+may be provided in role
+may warrant
+refers to and
+required
+required for to operate
+include with
+if does not contain shall be used
+if does not contain
+if does not contain the authentication data required
+is accessed
+is accessed then other authorized methods
+can non-modifiable contained in or
+can non-modifiable contained in or contained in
+contained in
+with / or
+contained in
+shall protect
+can compromise
+can compromise the security of
+security levels and for and shall be physically separated from and via
+shall be physically separated from
+security levels and for and and shall be logically separated from and via
+shall be logically separated from and
+security level in and shall apply
+shall apply
+the following requirements shall apply
+shall be covered with or
+shall be implemented
+so shall have
+in shall monitor and correctly
+will not function
+shall apply to single-chip for
+shall involve
+electronic circuitry or continuously measure
+electronic circuitry or devices continuously measure
+continuously measure
+continuously measure the operating temperature and
+shall conform to for shall less than
+will succeed or guessing a
+will occur
+will occur false acceptance error rate of or
+are interconnected and
+refers to
+refers to the use of manages within and
+the use of resource manager manages within and
+the use of manages within and
+manages within and
+the use of a commercially-available general purpose operating system manages within and
+immediately zeroize and csps
+shall at conform to
+security level in and shall apply
+for multiple attempts to use during shall less than
+will succeed or
+shall apply
+shall be covered with
+will have
+shall apply to single-chip
+the following requirements shall apply
+shall specify
+may be assumed by
+then shall be required and shall show
+shall show
+if supports then shall internally maintain
+shall show to indicate
+is exclusively providing services with
+is activated and
+is exclusively providing without
+if supports
+is exclusively providing services without
+then shall internally maintain
+is not encrypted or
+is alternately activated and and
+is exclusively providing
+is not activated and
+are set may be user-initiated
+a cryptographic module implements a are set
+bypass capability where are provided without
+where are provided without
+are set
+are set is providing with for
+is providing with for
+is providing some services with for
+then shall be required and
+then shall be required to activate and
+include
+roles and shall support within
+shall support within
+shall support authorized roles for within
+shall support within each role
+shall be performed
+shall be obscured during
+shall be performed
+when is invoked
+security functions are required
+are required
+which are required
+shall have
+will not function
+shall have such
+shall not weaken
+refers to with
+refers to with no underlying general purpose operating system uniquely resides
+no underlying general purpose operating system uniquely resides
+uniquely resides
+shall at conform to
+material hard opaque potting material level accessing
+the following requirements specific to
+shall perform
+shall perform to ensure
+is functioning properly
+refers to
+may be reconfigured
+delete
+delete / modify and or
+may be reconfigured to add
+table requires
+requires
+security level requires
+security level shall apply
+shall apply
+the following requirement shall apply
+if is contained within
+shall apply to multiple-chip
+requires
+requires the addition of
+shall specify and
+are interconnected and
+adds
+security level for is not required
+is not required
+is not required to employ
+adds
+are considered or
+if can be modified by and
+are considered if can be modified by and or
+shall operational when secret and cryptographic keys or are contained within
+are contained within
+if are not supported by
+shall require
+shall require that roles
+shall require be implicitly or selected by
+is required at
+is required at security level tamper detection and
+is not required or
+the operating system requirements in shall apply
+where are not modified
+is not required to assume or
+do not affect
+security level for shall employ
+shall employ
+the following requirements specific to
+do not apply
+examples of include
+include
+are specified for
+are specified for a maintenance access interface when is designed by
+a maintenance access interface when is designed by
+when is designed by
+when is designed to permit by
+shall employ
+identity-based authentication mechanisms to control
+may be required within and
+may be required within to authenticate and
+is authorized
+is authorized to assume and
+may be required within and to verify
+if permits
+if permits to change
+then shall authenticate
+general physical security requirements shall apply to
+shall apply to
+the following requirements shall apply to
+security level shall apply to
+shall apply to
+the following requirement shall apply to
+shall be entirely contained within
+may include
+shall be specified and or
+shall be specified using and or
+shall specify
+shall specify are implemented
+are implemented
+which are implemented
+roles shall support
+shall support
+shall support the following authorized roles for
+shall support user role
+shall specify
+assumed
+assumed to perform
+security level in shall apply to
+shall apply to
+the following requirements shall apply to
+if are supported by
+shall require
+be individually identified
+shall require be individually identified
+shall require shall require
+crypto officer role assumed
+assumed
+assumed to perform
+includes
+includes all operational and states of
+all operational and states of the input events cause to
+the input events cause to
+cause to
+cause transitions from to and
+summarizes for
+shall specify
+approved and
+can be performed
+the authorized role can be performed
+which can be performed
+is not required and
+is not required to assume and
+is not required and how do not modify or and or
+how do not modify or and or
+which is not required and
+if includes
+if includes maintenance role or
+maintenance role requires or
+requires
+requires physical access to
+if is designed
+if is designed to permit by
+shall include
+shall include the following operational and states
+if includes
+then shall be locked with or
+if permits
+if permits to change
+then shall verify
+then shall verify to assume
+may distinguish between
+shall include including
+shall include including any removable covers or
+are performed
+which are performed
+states are performed e.g.
+may permit or
+may permit to perform or
+may permit or may require for or
+may be required within
+is authorized
+is authorized to assume and
+may be required within to authenticate and
+included within
+included within the maintenance access interface
+security level in and shall apply to for
+shall apply to for
+shall apply to for security level
+authorized
+obtain or
+obtain perform or
+obtain or perform
+when is powered off and
+when is powered off and shall not be retained and
+shall not be retained and
+shall require
+when is powered off and subsequently powered on
+shall be zeroized and
+states is performing
+is performing
+which is performing
+is not required
+security level in and shall apply to
+is not required to authenticate
+shall apply to
+the following requirements shall apply to
+shall be covered with
+shall be covered with a hard potting material opaque within
+shall be contained within
+enhance at and
+will not function
+enhance at the same level and
+shall specify and and
+shall specify the maintenance access interface and and
+are zeroized
+when has encountered
+failed
+failed a self-test or
+may be required by
+may be required by to implement
+may be required by not limited to
+may include hard and
+may include hard errors indicate and
+indicate
+may require or
+may require or resetting of
+may include hard and may require
+may require
+may require maintenance or of
+shall apply to
+shall consist of
+shall consist of production-grade components shall include
+shall include
+shall include standard passivation techniques
+depending on shall support
+depending on shall support one of
+if are supported by
+shall require
+shall require that roles
+shall require be
+depending on the security level shall support
+shall apply to multiple-chip
+shall apply
+shall be entirely contained within
+may include
+if includes
+shall contain upon
+shall continuously monitor and
+security level in and shall apply
+shall apply
+shall apply to multiple-chip for within
+shall be covered with
+shall be covered with hard epoxy material opaque within
+section security level in shall apply
+shall apply
+the following requirements shall apply
+for shall be covered by or
+for shall be covered by or contained within
+printed with
+shall detect by
+shall detect by means as
+shall apply to multiple-chip

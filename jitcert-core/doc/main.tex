@@ -1,0 +1,773 @@
+
+% \documentclass[format=acmsmall, review=false, screen=true, pdftex,hyperref,svgnames]{acmart}
+\documentclass{article}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{xspace}
+
+% UPDATES
+%% X Make sure figure code is up to date.
+%% X New solution node requirements/sentences.
+%% X New queries
+%%   Describe web UI
+%% X Logic nodes
+%%% X Normalizing GSNs
+%% X Add figure 4 as pattern by turning it into a combinator?
+
+% X Embedded DSL in Haskell
+% X Builder monad to create GSNs.
+% X Example of creating nodes and edges.
+% X Correct by construction, enforced by Haskell's type system
+%% X Explain rules
+% X Sentences
+%%   Reference to other nodes.
+%%   predicates
+% X Noun/verb context nodes
+% X Node policies
+%   Setting values
+%%   Values for noun context nodes
+%%   Evidence for solution nodes
+%   Checks for wellformedness
+%%   Scoping, etc
+%   Patterns
+%%   Combinators
+%%   Queries
+
+% Rendering GSNs.
+
+% Mapping to boolean logic/expressions
+% Compute if overall GSN is true.
+% Incremental checking once values in the GSN environment have changed.
+
+\newcommand{\jitcert}{JitCert\xspace}
+
+
+\input{haskellListings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+
+\begin{document}
+\title{\jitcert Documentation}
+
+% \author{}
+
+\maketitle
+
+\section{Introduction}
+
+\jitcert is a domain specific language (DSL) for defining, rendering, checking, and querying 
+assurance case arguments in Goal Structuring Notation (GSN) \cite{kelly2004goal}. 
+\jitcert is implemented as an embedded DSL in Haskell. 
+
+\section{Defining GSNs}
+
+The \jitcert library provides a \texttt{Builder} monad to construct GSNs (available in the \texttt{JitCert.GSN.Builder} module). 
+Each node type (goal, context, solution, strategy, assumption, justification) has a function to create a new node and insert the node into the GSN. 
+For example, we can create a goal node with the \texttt{goal} function:
+\begin{mcode}
+g <- goal PolicyAnd [SFText "Top level goal"]
+\end{mcode}
+This creates a goal node with a string label \texttt{"Top level goal"}. 
+In addition, this node has a conjunction policy that requires all child nodes to be \texttt{true}. 
+Policies are described in detail in \Cref{sec:policies}. 
+
+We can create a solution node for the goal node with the \texttt{solution} and \texttt{addEdge} functions:
+% s <- solution @() [SFText "Solution node"]
+\begin{mcode}
+s <- solution SolutionNode
+addEdge g s
+\end{mcode}
+First we create a solution node that holds a trivial \texttt{SolutionNode} value. % with a string label. 
+% This solution node does not require any type of evidence, so we give it unit (\texttt{()}) as the evidence type. 
+% Evidence types are documented in \Cref{subsec:evidence}. 
+Next we add an edge between the goal node, \texttt{g}, and the solution node, \texttt{s}.
+This creates the GSN shown in \Cref{fig:fig1}. 
+% Shapes of GSN nodes are rendered according to their types, as is convention.
+
+Solution nodes in JitCert hold values that describe what type of evidence is required to satisfy the node and how to visually display that node. 
+The \texttt{SolutionType} typeclass is used to specify the evidence type and text rendering for a node. 
+\begin{mcode}
+class SolutionType s where
+    type SolutionEvidence s
+
+    renderSolution :: s -> Sentence
+\end{mcode}
+% Should we use a different example that's clearer? Passing test cases and test results?
+\texttt{SolutionNode} is a simple type for the solution node in \Cref{fig:fig1}.
+This solution node does not require any type of evidence, so we give it unit (\texttt{()}) as the evidence type. 
+The node's description is always rendered as \texttt{"Solution node"}. 
+\begin{mcode}
+data SolutionNode = SolutionNode
+
+instance SolutionType SolutionNode where
+    type SolutionEvidence SolutionNode = ()
+
+    renderSolution SolutionNode = [SFText "Solution node"]
+\end{mcode}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figure1.png}
+\caption{Simple GSN example.}
+\label{fig:fig1}
+\end{figure}
+
+\subsection{Correct GSN structure}
+
+GSN places the following constraints on the structure of nodes. 
+% The following are the constraints on nodes. 
+%
+\begin{itemize}
+\item Goal nodes may have children with any type of node.
+\item Strategy nodes may only have children of goal, context, assumption, and justification nodes.
+\item Any other node combinations are forbidden. 
+\end{itemize}
+%
+\jitcert uses Haskell's type system
+to enforce these constraints. 
+This results in \jitcert GSNs that are correct by construction.
+
+% \subsection{Context nodes}
+
+\subsection{Node labels} % references}
+
+Nodes in \jitcert GSNs are labeled with sentences, which are lists of sentence fragments. 
+When rendering a node's label, sentence fragments are concatenated with spacing in between. 
+Here is the type definition for a sentence fragment (module \texttt{JitCert.GSN.Types}). 
+\begin{mcode}
+data SentenceFragment =
+    SFText T.Text
+  | forall c . RenderContext c => SFContext (Node c Context)
+  | forall p . Property p => SFProperty p
+\end{mcode} % JP: Rename RenderContext to ContextValue?
+As previously seen, a sentence fragment can be a string (ex, \texttt{SFText "Top level goal"}), which directly renders as the string.
+
+Sentence fragments can also contain references to context nodes by using the \texttt{SFContext} constructor.  
+Referenced context nodes must be instances of the \texttt{RenderContext} typeclass so that the GSN can display the node reference as part of the sentence. 
+% Sentence fragments must only reference noun contexts. 
+In addition to visually displaying the referenced node, 
+node references establish a dependence of the current node to the referenced node. 
+If the referenced node's value changes, the current node is invalidated and needs to be recertified. 
+
+% TODO: An example would probably help.
+
+The final sentence fragment constructor is \texttt{SFProperty} that can hold any type that implements the \texttt{Property} typeclass. 
+Properties are typically data types representing predicates. 
+For example, one might define a \texttt{NoIO} type as a property to indicate a piece of software does not perform any input or output operations.
+Properties define how they should be rendered. 
+Properties may also contain references to other context nodes, which again invalidate the current node if the referenced node's value changes.
+
+\subsection{Context nodes}
+\label{subsec:contextnodes}
+
+There are two kinds of context nodes: noun context nodes and verb context nodes. 
+
+\paragraph{Noun context nodes.}
+Noun context nodes represent an object that the GSN is reasoning about. 
+Noun context nodes introduce a variable into scope for the context node's parent and the parent's descendents. 
+For example, if a GSN is arguing that a software program is safe, the GSN would introduce the software program with a context node. 
+\begin{mcode}
+p <- context @SoftwareProgram "p" Nothing
+\end{mcode}
+This creates a context node % that can hold a
+of a 
+\texttt{SoftwareProgram} with variable name \texttt{"p"} and no custom label. 
+% 
+Now we can create a goal node that introduces the software program context node and 
+a context node for the test case that tests the program. 
+\begin{mcode}
+g <- goal PolicyAnd [SFContext p, SFProperty IsSafe]
+addEdge g p
+
+t <- context @Test "t" Nothing
+addEdge g t
+\end{mcode}
+% Notice that the goal, \texttt{g}, 
+Goal, \texttt{g}, argues that program, \texttt{p}, supports the \texttt{IsSafe} property. 
+%
+%
+Finally, we add a solution node that supports the goal with test case, \texttt{t}.
+\begin{mcode}
+s <- solution (Tests t p IsSafe)
+addEdge g s
+\end{mcode}
+% \begin{mcode}
+% s <- solution @TestResult [SFText "Test that", SFContext p, SFText "is safe"]
+% addEdge g s
+% \end{mcode}
+Both the goal node, \texttt{g}, and the solution node, \texttt{s}, 
+have references to the context node for software program, \texttt{p}.
+Solution node, \texttt{s}, also has a reference to the test context node, \texttt{t}, 
+because the result of running a test case should be invalidated when the test case is changed.
+The GSN for this example is shown in \Cref{fig:fig2}.
+
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figure2.png}
+\caption{Example of GSN with references to context nodes.}
+\label{fig:fig2}
+\end{figure}
+
+
+% Nodes that are referenced must be noun context nodes.
+% If a node is referenced 
+
+\paragraph{Verb context nodes.}
+Verb context nodes describe a situation. 
+A verb context node's parent argument only applies when the situation is true. 
+For example, we can build an argument that a program is compatible with the following GSN. 
+\begin{mcode}
+p <- context @SoftwareProgram "p" Nothing
+
+g <- goal PolicyAnd [SFContext p, SFText "is compatible"]
+addEdge g p
+
+g1 <- goal PolicyAnd [SFContext p, SFProperty UsesLinuxLibraries]
+addEdge g g1
+
+s <- solution (ManualInspection p UsesLinuxLibraries)
+addEdge g1 s
+\end{mcode}
+This GSN supports the top level goal with a subgoal that the program uses Linux libraries. 
+This subgoal is only relevant when the program is targeting Linux. 
+We can encode this information with the \texttt{contextVerb} function. 
+\begin{mcode}
+c <- contextVerb "targets Linux" programTargetsLinux
+addEdge g1 c
+
+programTargetsLinux :: SoftwareProgram -> Bool
+\end{mcode}
+We also need to update the policy for goal \texttt{g1}. 
+\begin{mcode}
+g1 <- goal (PolicyWhen p c PolicyAnd) [SFContext p, SFProperty UsesLinuxLibraries]
+\end{mcode}
+The verb context node \texttt{c} indicates the parent goal \texttt{g1} only applies when the predicate \texttt{programTargetsLinux} is true for the program \texttt{p}.
+This GSN is shown in \Cref{fig:fig3}. 
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figure3.png}
+\caption{Example of GSN with references to context nodes.}
+\label{fig:fig3}
+\end{figure}
+
+\subsection{Node policies}
+\label{sec:policies}
+
+Nodes can have different policies that specify how a node's argument depends on its children. 
+Here is the type that specifies node policies. 
+\begin{mcode}
+data NodePolicy c =
+    PolicyAnd
+  | PolicyOr
+  | PolicyNot (NodePolicy c)
+  | PolicyWhen (Node c Context) (Node (c -> Bool) Context) (NodePolicy c)
+  | PolicyForall (Node c Context) (Node [c] Context)
+\end{mcode}
+\texttt{PolicyAnd} means that a node is only valid when all of its children are valid. 
+\texttt{PolicyOr} means that a node is valid when any of its children are valid. 
+\texttt{PolicyNot} is the negation of the subpolicy (first argument) on its children. 
+\texttt{PolicyWhen} is used with verb context nodes (second argument). 
+The node's policy (third argument) only applies when the predicate from the verb context node is true for the referenced context node (first argument). 
+Otherwise, it is trivially valid. 
+An example was previously shown in \Cref{subsec:contextnodes}. 
+\texttt{PolicyForall} takes two context nodes as arguments. 
+The second node serves as a reference to a set of values, while the first node is introduced as a reference to each element in the set of values. 
+The node is valid only when its children are valid for all elements in the set of values. 
+% Example?
+
+To help construct nodes with for all policies, \jitcert provides the \texttt{forall} function, which has the following type. 
+\begin{mcode}
+forall :: (RenderContext c, Monad m) => Variable -> Node [c] Context -> BuilderT m (Node c Context, NodePolicy c)
+\end{mcode}
+\texttt{forall} takes a variable name and the node that references the set of values. 
+It returns an introduced node with a reference to the elements of the set of values and the for all policy that can be used in the creation of other nodes.
+
+
+% Mapping to boolean expressions?
+
+\subsection{Logic nodes}
+
+There are times when a GSN node only conveys logical information and does not make a verbal argument. 
+To support this situation, \jitcert offers logic nodes to support logical \emph{and}, \emph{or}, and \emph{not}. 
+\emph{and} nodes are displayed as squares and require all child nodes to be valid.
+\emph{or} nodes are displayed as diamonds and require any child node to be valid. 
+\emph{not} nodes are displayed as triangles and its validity is the negation of whether the subpolicy is valid. 
+
+Logic nodes can be constructed with the \texttt{andNode}, \texttt{orNode}, and \texttt{notNode} functions.
+\begin{code}
+andNode :: Monad m => BuilderT m (Node c Goal)
+orNode  :: Monad m => BuilderT m (Node c Goal)
+notNode :: Monad m => NodePolicy c -> BuilderT m (Node c Goal)
+\end{code}
+
+As an example, consider the situation where a strategy requires the first goal to hold, while neither the second and third goal should hold. 
+This can be encoded by the following.
+\begin{mcode}
+s <- strategy PolicyAnd [SFText "Strategy 1"]
+
+n1 <- andNode
+addEdge s n1
+
+n2 <- notNode PolicyOr
+addEdge n1 n2
+
+g1 <- goal PolicyAnd [SFText "Goal 1"]
+addEdge n1 g1
+
+g2 <- goal PolicyAnd [SFText "Goal 2"]
+addEdge n2 g2
+
+g3 <- goal PolicyAnd [SFText "Goal 3"]
+addEdge n2 g3
+\end{mcode}
+This results in the GSN shown in \Cref{fig:logic}.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figureLogic.png}
+\caption{Logic nodes in a GSN.}
+\label{fig:logic}
+\end{figure}
+
+
+\subsection{Normalizing GSNs}
+\label{subsec:normalize}
+
+There are times when it is not possible to visualize a GSN's policy or a policy goes against convention.
+\jitcert aids in this situation by providing the \texttt{normalizeGSN} function to normalize a GSN. 
+\begin{code}
+normalizeGSN :: GSNGraph -> GSNGraph
+\end{code}
+By convention, sibling goal nodes imply a conjunction for the parent node. 
+If the parent's policy is not a \texttt{PolicyAnd}, \texttt{normalizeGSN} will insert an intermediate logic node so that the policy is clear visually. 
+Similarly, sibling strategy nodes imply disjunction, so \texttt{normalizeGSN} will insert an intermediate logic node when the parent's policy is not a \texttt{PolicyOr}. 
+
+Consider \Cref{fig:logic} as an example. 
+Node \texttt{n2} is a \emph{not} node with an \emph{or} subpolicy. 
+Its children are goal nodes, which implies conjunction.
+To visually indicate the \emph{or} subpolicy, \texttt{normalizeGSN} inserts a logical \emph{or} node (\Cref{fig:normalize}).
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figureNormalize.png}
+\caption{Normalization of logic nodes in a GSN.}
+\label{fig:normalize}
+\end{figure}
+
+
+\section{GSN Environments}
+
+In addition to structuring an argument, it is important to be able to reason about the objects and evidences that are being argued about in a GSN. 
+\jitcert supports this by allowing users to create an environment that assigns values to nodes in the graph. % in two ways. 
+Specifically, values can be assigned for noun context nodes and solution nodes. 
+
+\paragraph{Noun context nodes}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figure4.png}
+\caption{Example of GSN with references to context nodes.}
+\label{fig:fig4}
+\end{figure}
+
+Consider the argument that a software function is correct if it passes its test.
+\begin{mcode}
+f <- context @Function "f" Nothing
+t <- context @Test "t" Nothing
+
+g <- goal PolicyAnd [SFContext f, SFText "is correct"]
+addEdge g f
+addEdge g t
+
+s <- solution (Tests t f IsCorrect)
+addEdge g s
+\end{mcode}
+Suppose we want to reason about the implementation of the fibonacci function. 
+We can assign a value for the function \texttt{f} and its test \texttt{t} with \texttt{setContextValue}.
+\begin{mcode}
+setContextValue f (Function "fibonacci" "c9a0ad2c")
+setContextValue t (Test "test_fibonacci" "63d1cc08")
+\end{mcode}
+This binds the fibonacci function to \texttt{f} and the fibonacci test to \texttt{t} in the environment. 
+\Cref{fig:fig4} shows the GSN with its updated environment. 
+
+
+
+% TODO: Nested environments
+
+\paragraph{Solution nodes}
+In \jitcert, solution nodes can be assigned evidence values in the environment. 
+Continuing the previous example, solution node \texttt{s} takes an evidence of type \texttt{TestResult}. 
+We can set the evidence value in the environment with the \texttt{setSolutionEvidence} function. 
+\begin{mcode}
+setSolutionEvidence s (TestResult True)
+\end{mcode}
+This gives solution \texttt{s} a passing test result as its evidence. 
+% Types used as evidence for solutions must implement the \texttt{Evidence} typeclass. 
+
+% Evidence type...
+% typeclass
+% setEvidence
+
+
+\subsection{Nested environments}
+\label{subsec:nestedenv}
+There are situations when the value of one node may influence the values of other nodes. 
+For example, if there are multiple functions, each function may have its own test case. 
+To support this functionality, \jitcert provides the \texttt{setContextValuesWith} function to create nested environments. 
+% 
+% 
+% We can create 
+% 
+% nested environments
+Let's recreate the previous example, except check that a list of functions are all correct.
+\begin{mcode}
+fs <- context @[Function] "fs" Nothing
+(f, p) <- forall "f" fs
+
+gs <- goal p [SFContext f, SFText "is correct"]
+addEdge gs fs
+
+t <- context @Test "t" Nothing
+addEdge gs t
+
+s <- solution (Tests t f IsCorrect)
+addEdge gs s
+\end{mcode}
+Now we can argue that two functions, fibonacci and foo, are correct.
+\begin{code}
+let functions = [ (Function "fibonacci" "c9a0ad2c", Test "test_fibonacci" "63d1cc08", TestResult True)
+                , (Function "foo" "f9434869", Test "test_foo" "e71b685f", TestResult False)]
+setContextValuesWith fs functions $ lambda(function, functionTest, functionTestResult) -> do
+      setContextValue t functionTest
+      setSolutionEvidence s functionTestResult
+
+      return function
+\end{code}
+First, we create a list of functions with their associated test and test result. 
+We pass this to \texttt{setContextValuesWith} and set the values for \texttt{t} and \texttt{s} in the nested environment. 
+The value for \texttt{f} is set automatically. 
+\Cref{fig:fig5} shows this GSN. 
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figure5.png}
+\caption{Example of GSN with references to context nodes.}
+\label{fig:fig5}
+\end{figure}
+
+
+\section{Well-formedness}
+
+\jitcert's use of Haskell's type system enforces well-formedness in the structure of GSN graphs, but there are other errors that can violate well-formedness. 
+\jitcert provides functions to check for these well-formedness violations (module \texttt{JitCert.Analysis}).
+
+\subsection{Unbound node references}
+Nodes are introduced into scope for the node's parent and the parent's descendents (\Cref{subsec:contextnodes}). 
+A noun context node can only be referenced when it is in scope. 
+\jitcert provides the \texttt{checkUnbound} function to check when this invariant is violated.
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{img/figure6.png}
+\caption{Example of GSN with references to context nodes.}
+\label{fig:fig6}
+\end{figure}
+
+
+For example, consider the GSN shown in \Cref{fig:fig6}. 
+The \texttt{"A goal"} node introduces the program \texttt{p} as a context node.
+Only descendants of the \texttt{"A goal"} node can reference \texttt{p}, but the cousin goal has a reference to \texttt{p}.
+This is a violation. 
+When \texttt{checkUnbound} is run on this GSN, 
+it produces the error \texttt{"Unbound error at node: Cousin goal that program, p is safe."}
+
+
+
+% Describe issue. Show example. Describe function that performs check for this error.
+\subsection{Values assigned to unbound node references}
+It is possible to assign values to noun context nodes and solution nodes even if the nodes are not in scope. 
+\jitcert provides the \texttt{checkUnboundValues} to check when this happens. 
+
+\Cref{fig:fig7} extends the example in \Cref{fig:fig5} by using it as a subgoal. 
+In addition, it creates another subgoal that the program uses a
+sufficiently random random number generator. 
+A context node \texttt{rng} is added for the random number generator. 
+\begin{mcode}
+rng <- context @RNG "g" Nothing
+\end{mcode}
+\texttt{rng} is not in scope for the functions are correct goal node. 
+We can assign \texttt{rng} a value in the nested scope for this node.
+\begin{code}
+setContextValuesWith fs functions $ \(function, generator) -> 
+    setContextValue rng generator
+\end{code}
+Now when we run \texttt{checkUnboundValues}, we get the error 
+\texttt{"Value assigned to node, but node is not in scope: rng, g."}
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{img/figure7.png}}
+\caption{Example of GSN with references to context nodes.}
+\label{fig:fig7}
+\end{figure}
+
+\subsection{Shadowed value assignments}
+Since \jitcert supports nested scopes, it is possible to define a value for a node in one environment, and then define it again in a nested child environment. 
+This is called shadowing value assignments. 
+While shadowing value assignments is technically valid, it does not typically make sense to do so in practice.
+\jitcert provides the \texttt{checkShadowedValues} to check for shadowed values. 
+
+Consider the example GSN in \Cref{fig:fig5} (from \Cref{subsec:nestedenv}).
+Previously, we assigned values to the nodes \texttt{f}, \texttt{t}, and \texttt{s} in the nested environment. 
+\begin{code}
+setContextValuesWith fs functions $ lambda(function, functionTest, functionTestResult) -> do
+    setContextValue f function
+    setContextValue t functionTest
+    setSolutionEvidence s functionTestResult
+
+    return function
+\end{code}
+We can shadow value assigned to node \texttt{t} by setting its value in the top level environment. 
+\begin{mcode}
+setContextValue t (Test "test_constant" "32dfe08c")
+\end{mcode}
+When \texttt{checkShadowedValues} is run on this GSN, 
+it produces the error \texttt{"Value is shadowed at node: test, t."}
+
+% TODO: PolicyWhen must have 1 child as the context verb predicate + vice versa
+% Unused, never referenced nodes.
+% Acyclic check
+
+\section{Patterns}
+
+There are common patterns that frequently appear in many GSNs. 
+\jitcert provides functionality to easily create and identify these patterns. 
+
+\subsection{Contexts}
+
+There are many types that are frequently used for noun contexts in GSNs. 
+\jitcert defines some of these types in the \texttt{JitCert.Context} module. 
+
+For example, files are a common value for noun contexts. 
+\jitcert defines the following data type for files. 
+\begin{code}
+data File = File {
+      fileName :: FilePath
+    , fileDirectory :: FilePath
+    , fileContent :: Hash
+    }
+\end{code}
+\jitcert implements a \texttt{RenderContext} instance for \texttt{File} so that it may be used in noun context nodes.
+In addition, the function, \texttt{loadFile :: FilePath -> IO File}, is offered as an easy way to create a \texttt{File} given its filepath. 
+
+
+\subsection{Evidence}
+
+In a similar manner to contexts, \jitcert defines types for commonly used evidence types in the module \texttt{JitCert.Evidence}. 
+Manual inspection is a common solution. 
+The evidence for inspection is represented with the \texttt{Inspected} type.
+\begin{mcode}
+data Inspected c p = Inspected {
+      inspector :: T.Text
+    , inspectionDate :: UTCTime
+    , inspectionPasses :: Bool
+    }
+\end{mcode}
+\texttt{Inspected} serves as evidence by denoting who did the inspection, when the inspection took place, and the result of the inspection. 
+% \jitcert provides an \texttt{Evidence} instance for \texttt{Inspected}.
+
+\subsection{Combinators}
+
+\jitcert has combinators to facilitate the easy creation of common patterns (module \texttt{JitCert.Combinators}). 
+One such pattern is that a property is either supported by manual inspection or static analysis. 
+The function \texttt{manualInspectionOrStaticAnalysis} creates a GSN with this pattern and has the following type.
+\begin{mcode}
+manualInspectionOrStaticAnalysis :: (Property p, Monad m) => Sentence -> Node c Context -> p -> BuilderT m (Node d Goal, Node (Inspected c p) Solution, Node (StaticProgramAnalysisCertificate c p) Solution)
+\end{mcode}
+It takes a sentence for the goal node's label, a context node, and a property as arguments. 
+Here's an example that argues a program is safe by manual inspection or static analysis. 
+\begin{mcode}
+p <- context @SoftwareProgram "p" Nothing
+
+(g, _, _) <- manualInspectionOrStaticAnalysis [SFContext p, SFProperty IsSafe] p IsSafe
+addEdge g p
+\end{mcode}
+This results in the GSN shown in \Cref{fig:fig8}.
+Notice that the GSN substructure is automatically created by the \texttt{manualInspectionOrStaticAnalysis} combinator. 
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{img/figure8.png}}
+\caption{Simple GSN example.}
+\label{fig:fig8}
+\end{figure}
+
+\paragraph{User-defined combinators} While JitCert provides built-in combinators for common GSN structures, it is simple for users to define their own combinators to reuse argument structures in their GSN. 
+Users can do so by defining a function that creates their argument structure and returns references to relevant nodes. 
+For example, we can convert \Cref{fig:fig2} into a user-defined combinator by creating the function \texttt{testFunction}. 
+\begin{mcode}
+testFunction :: Node g Goal -> BuilderT m (Node Function Context, 
+    Node Test Context, Node (Tests Function IsCorrect) Solution)
+testFunction parent = do
+  f <- context @Function "f" Nothing
+  t <- context @Test "t" Nothing
+
+  g <- goal PolicyAnd [SFContext f, SFText "is correct"]
+  addEdge g f
+  addEdge g t
+
+  s <- solution (Tests t f IsCorrect)
+  addEdge g s
+
+  addEdge parent g
+  return (f, t, s)
+\end{mcode}
+The majority of the function body of \texttt{testFunction} is the same as the code for \Cref{fig:fig2}. 
+The only differences are on the last two lines. 
+An edge is added from the \texttt{parent} goal node, which is provided as an argument. 
+The function also returns references to the function context node, test context node, and testing solution node.
+Now the user can easily reuse this pattern by calling \texttt{testFunction}. 
+
+
+\subsection{Queries}
+\label{subsec:patqueries}
+
+\jitcert offers querying functions to identify patterns (\texttt{JitCert.Query}).
+To find goals supported by manual inspection or static analysis, 
+we can use the 
+\texttt{findManualInspectionOrStaticAnalysis} function. 
+Given a GSN graph, it returns the list of nodes that are goal nodes with an 
+\texttt{or} policy and child solution nodes of
+manual inspection and static analysis. 
+% solution nodes.
+
+Users can write their own queries with the \texttt{findNodes} function. 
+\begin{code}
+findNodes :: GSNGraph -> (GSNGraph -> SomeNode -> ParentNodes -> ChildNodes -> Bool) -> [SomeNode]
+\end{code}
+Users can specify a predicate function of whether a node matches a pattern. 
+\texttt{findNodes} will then search the GSN graph for all nodes that match the user defined pattern.
+
+\section{Queries}
+\label{sec:queries}
+
+\subsection{Pattern queries}
+
+As previously discussed in \Cref{subsec:patqueries}, \jitcert allows users to run queries on the structure of GSNs and identify patterns. 
+\jitcert also enables additional types of queries that are discussed in the rest of this section. 
+
+\subsection{Environment queries}
+
+\jitcert provides functions to query GSN structures and their environments. 
+For example, if we want to identify all the context and solution nodes that are missing values and evidence, 
+we can use the \texttt{findMissingValues} function.
+\begin{code}
+findMissingValues :: GSNGraph -> GSNEnv -> [SomeNode]
+\end{code}
+This returns a list of the nodes that are missing values, making it easy for certifiers to discover what is still needed to support the GSN argument. 
+
+Users can write their own queries with the \texttt{findNodesWithEnv} function. 
+\begin{code}
+findNodesWithEnv :: GSNGraph -> GSNEnv -> (GSNGraph -> GSNEnv -> SomeNode -> ParentNodes -> ChildNodes -> Bool) -> [SomeNode]
+\end{code}
+This is similar to the \texttt{findNodes} function, except it also takes an environment as an argument to the predicate.
+
+\jitcert provides two functions that returns a list of context and evidence values for a given context or solution node. 
+\begin{code}
+lookupContextNodeValues :: NodeId c Context -> GSNGraph -> GSNEnv
+    -> [SomeContext]
+lookupSolutionNodeValues :: NodeId c Solution -> GSNEnv
+    -> [SomeEvidence]
+\end{code}
+For example, calling \texttt{lookupContextNodeValues} on \texttt{fs} from \Cref{fig:fig5} returns the \emph{fibonacci} and \emph{foo} functions. 
+On the other hand, calling \texttt{lookupSolutionNodeValues} on the figure's solution node returns the passing \texttt{TestResult} for \emph{fibonacci}
+and the failing \texttt{TestResult} for \emph{foo}.
+
+\subsection{Difference queries}
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{img/figure9.png}}
+\caption{Simple GSN example.}
+\label{fig:fig9}
+\end{figure}
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{img/figure10.png}}
+\caption{Simple GSN example.}
+\label{fig:fig10}
+\end{figure}
+
+Oftentimes when recertifying a system due to a new release, parts of the system change, but the GSN structure remains the same. 
+To speed up the recertification process, it is helpful to identify which parts of a GSN argument are impacted by the changes to the system and need to be rechecked. 
+\jitcert provides the \texttt{envDiff} function to identify which parts of a GSN are impacted by system changes.
+\begin{code}
+envDiff :: GSNGraph -> GSNEnv -> GSNEnv -> Set SomeNode
+\end{code}
+The first argument is the GSN graph structure. 
+The second argument is the initial GSN environment where values are supplied to context and solution nodes. 
+The third argument is the updated GSN environment where context and solution node values may differ.
+\texttt{envDiff} returns the set of nodes where its value or any of its dependencies' values have changed. 
+These nodes of the GSN argument are impacted by the changes to the system and need to be recertified. 
+It is important to note that for this functionality to be correct, dependencies must be correctly encoded in the GSN graph. 
+
+
+As an example, consider the GSN from \Cref{fig:fig7} where the program uses \emph{Dual\_EC\_DRBG} as its random number generator (\Cref{fig:fig9}). 
+% https://en.wikipedia.org/wiki/NIST_SP_800-90A
+After \emph{NIST SP 800-90A} removed \emph{Dual\_EC\_DRBG} as a recommended random number generator, 
+the program switched to using \emph{HMAC\_DRBG}. 
+The updated GSN is shown in \Cref{fig:fig10}, which highlights the argument nodes dependent on \texttt{g} that need to be recertified. 
+
+
+
+\section{Web interface}
+
+\jitcert offers a web interface to view and run queries on GSNs. 
+\Cref{fig:web1} is a screenshot of the web interface rendering the GSN from \Cref{fig:fig5}. 
+The options sidebar allows the user to specify which environment of the GSN to load and what queries to run. 
+Queries from \Cref{sec:queries} like \texttt{checkUnbound}, \texttt{checkUnboundValues}, and \texttt{checkShadowedValues} can be run where 
+resulting nodes are highlighted and error messages shown. 
+
+The GSN can be normalized with 
+\texttt{normalizeGSN} (\Cref{subsec:normalize}). 
+
+When enabled, the interface will highlight the immediate dependencies of a selected node. 
+These are nodes that have a reference to the selected node. 
+This is implemented internally with the \texttt{buildReferencedDependencyGraph} function. 
+
+The difference between two environments can be highlighted with the \texttt{envDiff} function (\Cref{sec:queries}). 
+
+The details sidebar shows more information about a selected node, like its values from the environment (\Cref{fig:web2}). 
+
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{img/web1.png}}
+\caption{\jitcert web interface.}
+\label{fig:web1}
+\end{figure}
+
+\begin{figure}
+\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{img/web2.png}}
+\caption{\jitcert web interface with details for node \texttt{t}.}
+\label{fig:web2}
+\end{figure}
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

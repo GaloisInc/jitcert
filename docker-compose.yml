@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  jitcert-web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    environment:
+      - POSTGRES_DB=jitcert-web
+      - POSTGRES_USER=jitcert-web
+      - POSTGRES_PASSWORD=jitcert-web
+    ports:
+      - "5432"
+
